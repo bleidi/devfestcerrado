@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
-@WebServlet(name = "helloworld", value = "/" )
+@WebServlet(name = "helloworld", urlPatterns="/api/hello" )
 public class HelloServlet extends HttpServlet {
 
   @Override
