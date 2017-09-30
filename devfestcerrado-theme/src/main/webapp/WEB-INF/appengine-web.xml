@@ -5,7 +5,7 @@
   <threadsafe>true</threadsafe>
   <application>devfest-cerrado</application>
   <service>theme</service>
-  <version>cherry</version>
+  <version>lemon</version>
   <!-- <version>2</version> -->
   <!-- <version>3</version> -->
 </appengine-web-app>
