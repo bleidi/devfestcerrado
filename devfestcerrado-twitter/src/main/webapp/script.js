@@ -92,14 +92,14 @@ function postVideoToServer() {
   var form = new FormData()
   form.append('video', blob, 'filemon.webm');
 
-  fetch("/sendpic", {
+  fetch("/api/pic", {
     method: "POST",
     body: form
   }).then((response) => {
     return response.json();
   }).then((result) => {
     console.log(result);
-    window.location.href = '/next?url=' + encodeURIComponent(result.url);
+    window.location.href = '/next.html?url=' + encodeURIComponent(result.url);
   }).catch((err) => {
     console.error('There was a problem :(');
     console.error(err);

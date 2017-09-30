@@ -4,7 +4,7 @@
 	<groupId>me.bleidi</groupId>
 	<artifactId>devfestcerrado</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>pom</packaging>
 
 	<licenses>
 		<license>
@@ -43,24 +43,49 @@
 		<jetty.maven.plugin>9.4.3.v20170317</jetty.maven.plugin>
 	</properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.1.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>${groupId}</groupId>
+				<artifactId>devfestcerrado-visitorsfilter</artifactId>
+				<version>${version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 
 	<build>
-		<finalName>devfestcerrado</finalName>
-		<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
-		<plugins>
-			<plugin>
-				<groupId>com.google.appengine</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>${appengine.maven.plugin}</version>
-			</plugin>
-		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>com.google.appengine</groupId>
+					<artifactId>appengine-maven-plugin</artifactId>
+					<version>${appengine.maven.plugin}</version>
+				</plugin>
+				<!-- TODO plugin do build -->
+				<!-- <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory> -->
+				<!-- <plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.7.0</version>
+					<configuration>
+						
+					</configuration>
+				</plugin> -->
+			</plugins>
+		</pluginManagement>
 	</build>
+
+	<modules>
+		<module>devfestcerrado-twitter</module>
+		<module>devfestcerrado-theme</module>
+		<module>devfestcerrado-visitorsfilter</module>
+		<module>devfestcerrado-visitorsbook</module>
+	</modules>
 </project>
