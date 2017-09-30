@@ -15,10 +15,10 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>${groupId}</groupId>
 			<artifactId>devfestcerrado-visitorsfilter</artifactId>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 	<build>

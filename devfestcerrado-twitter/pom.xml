@@ -16,12 +16,15 @@
 			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>${groupId}</groupId>
-			<artifactId>devfestcerrado-visitorsfilter</artifactId>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-storage</artifactId>
+			<version>1.6.0</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
+		<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
 		<plugins>
 			<plugin>
 				<groupId>com.google.appengine</groupId>

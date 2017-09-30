@@ -16,19 +16,22 @@ import javax.servlet.http.HttpServletRequest;
 public class VisitorsFilter implements Filter{
 
 	private static final Logger log = Logger.getLogger(VisitorsFilter.class.getCanonicalName());
+	private VisitorsDao dao;
 	
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		log.info("init");
+		dao = VisitorsDao.get();
 	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		log.info("doFilter");
-		HttpServletRequest httpRequest = (HttpServletRequest) request;
-		httpRequest.getHeader("");
-		// TODO getHeaders to analytics
+		if(request instanceof HttpServletRequest) {			
+			HttpServletRequest httpRequest = (HttpServletRequest) request;
+			dao.create(new Visitor(request.getRemoteAddr(), httpRequest.getHeader("user-agent")));
+		}
 		chain.doFilter(request, response);
 	}
 
