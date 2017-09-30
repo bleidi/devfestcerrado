@@ -12,7 +12,7 @@ const yes = require('yes-https');
 
 const child_process = require('child_process');
 const cloudSettings = {
-    projectId: 'videobooth-next',
+    projectId: 'devfest-cerrado',
     keyFilename: __dirname + '/keyfile.json'
 };
 const vision = require('@google-cloud/vision')(cloudSettings);
